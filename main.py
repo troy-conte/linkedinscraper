@@ -279,7 +279,7 @@ def main(config_file):
         for job in all_jobs:
             job_date = convert_date_format(job['date'])
             job_date = datetime.combine(job_date, time())
-            #if job is older than a week, skip it
+            #if job is older than 'days to scrape', skip it
             if job_date < datetime.now() - timedelta(days=config['days_to_scrape']):
                 continue
             print('Found new job: ', job['title'], 'at ', job['company'], job['job_url'])
